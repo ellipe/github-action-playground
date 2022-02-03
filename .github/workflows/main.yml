@@ -20,3 +20,4 @@ jobs:
           branch: staging-promotion
           body: ':crown: *** An automated PR initiated by: ${{github.actor}} ***'
           assignees: '${{github.actor}}'
+          title: 'staging-promotion-${{ steps.date.outputs.date }}'
