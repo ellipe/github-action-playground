@@ -7,6 +7,9 @@ jobs:
   productionPromotion:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - uses: actions/checkout@v2
         with:
           ref: staging
@@ -18,3 +21,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: staging-promotion
+          body: ':crown: *** An automated PR initiated by: ${{github.actor}} ***'
+          assignees: '${{github.actor}}'
+          title: 'staging-promotion-${{ steps.date.outputs.date }}'
