@@ -18,3 +18,5 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: staging-promotion
+          body: ':crown: *** An automated PR initiated by: ${{github.actor}} ***'
+          assignees: '${{github.actor}}'
